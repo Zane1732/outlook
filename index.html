@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cookies GEN BY ZANE</title>
+    <title>Advanced Cookies GEN BY ZANE</title>
     <style>
         body {
             margin: 0;
@@ -13,11 +13,35 @@
             align-items: center;
             height: 100vh;
             color: #fff;
-            animation: backgroundColorChange 20s ease-in-out infinite, textColorChange 12s ease-in-out infinite;
+            background: linear-gradient(45deg, #ff0000, #000000, #8B0000, #800000);
             background-size: 400% 400%;
+            animation: backgroundColorChange 20s ease-in-out infinite, textColorChange 12s ease-in-out infinite;
             transition: background 0.3s ease;
             position: relative;
             overflow: hidden;
+        }
+
+        @keyframes backgroundColorChange {
+            0% {
+                background: linear-gradient(45deg, #ff0000, #000000, #8B0000, #800000);
+            }
+            50% {
+                background: linear-gradient(45deg, #8B0000, #800000, #ff0000, #000000);
+            }
+            100% {
+                background: linear-gradient(45deg, #ff0000, #000000, #8B0000, #800000);
+            }
+        }
+
+        @keyframes textColorChange {
+            0% {
+                color: #ff0000;
+                text-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000, 0 0 60px #ff0000, 0 0 80px #ff0000;
+            }
+            100% {
+                color: #ff0000;
+                text-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000, 0 0 60px #ff0000, 0 0 80px #ff0000;
+            }
         }
 
         /* Background video iframe */
@@ -28,52 +52,9 @@
             width: 1920px;
             height: 1080px;
             z-index: -1;
-            object-fit: contain; /* Ensures the video fits within the iframe without stretching */
-            transform: translate(-50%, -50%); /* Centers the video within the 1920x1080 frame */
+            object-fit: contain;
+            transform: translate(-50%, -50%);
             border: none;
-        }
-
-        /* Advanced background color transition animation */
-        @keyframes backgroundColorChange {
-            0% {
-                background: linear-gradient(45deg, #ff0000, #000000, #8B0000, #800000);
-            }
-            25% {
-                background: linear-gradient(45deg, #800000, #ff0000, #000000, #8B0000);
-            }
-            50% {
-                background: linear-gradient(45deg, #8B0000, #800000, #ff0000, #000000);
-            }
-            75% {
-                background: linear-gradient(45deg, #000000, #8B0000, #800000, #ff0000);
-            }
-            100% {
-                background: linear-gradient(45deg, #ff0000, #000000, #8B0000, #800000);
-            }
-        }
-
-        /* Neon text color change animation */
-        @keyframes textColorChange {
-            0% {
-                color: #ff0000;
-                text-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000, 0 0 60px #ff0000, 0 0 80px #ff0000;
-            }
-            25% {
-                color: #ff4500;
-                text-shadow: 0 0 20px #ff4500, 0 0 40px #ff4500, 0 0 60px #ff4500, 0 0 80px #ff4500;
-            }
-            50% {
-                color: #ff6347;
-                text-shadow: 0 0 20px #ff6347, 0 0 40px #ff6347, 0 0 60px #ff6347, 0 0 80px #ff6347;
-            }
-            75% {
-                color: #dc143c;
-                text-shadow: 0 0 20px #dc143c, 0 0 40px #dc143c, 0 0 60px #dc143c, 0 0 80px #dc143c;
-            }
-            100% {
-                color: #ff0000;
-                text-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000, 0 0 60px #ff0000, 0 0 80px #ff0000;
-            }
         }
 
         .container {
@@ -87,6 +68,8 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.5s ease;
+            max-width: 100%;
+            margin: auto;
         }
 
         h1 {
@@ -134,83 +117,63 @@
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
         }
 
+        .mute-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            font-size: 18px;
+            background-color: #000;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .mute-button:active {
+            opacity: 0;
+        }
+
         .popup {
-            display: none;
-            padding: 10px;
-            border-radius: 8px;
-            margin-top: 15px;
+            margin-top: 20px;
+            color: #ff0000;
+            font-size: 16px;
         }
 
         .popup.success {
-            background-color: rgba(0, 255, 0, 0.1);
-            color: #2d6a4f;
-            border: 1px solid #2d6a4f;
-        }
-
-        .popup.error {
-            background-color: rgba(255, 0, 0, 0.1);
-            color: #d32f2f;
-            border: 1px solid #d32f2f;
-        }
-
-        #generator {
-            display: none;
-            margin-top: 20px;
-        }
-
-        .generator-container {
-            margin-top: 20px;
-            padding: 20px;
-            border-radius: 10px;
-            background: rgba(0, 0, 0, 0.6);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        #countdown {
-            font-size: 18px;
-            margin-top: 10px;
-            color: #ff0000;
+            color: #00ff00;
         }
 
         #progress-bar {
             width: 100%;
-            height: 10px;
-            background-color: #333;
-            margin-top: 10px;
+            height: 5px;
+            background-color: #444;
             border-radius: 5px;
-            overflow: hidden;
+            margin-top: 10px;
             display: none;
         }
 
         #progress-bar-filled {
             height: 100%;
             background-color: #ff0000;
+            border-radius: 5px;
             width: 0%;
             transition: width 1s ease;
         }
 
-        /* Button Animation */
-        .loading {
-            background: linear-gradient(45deg, #666, #333);
-            animation: loadingAnimation 2s infinite;
-        }
-
-        @keyframes loadingAnimation {
-            0% {
-                background: linear-gradient(45deg, #444, #222);
-            }
-            50% {
-                background: linear-gradient(45deg, #333, #444);
-            }
-            100% {
-                background: linear-gradient(45deg, #444, #222);
-            }
+        #countdown {
+            margin-top: 5px;
+            font-size: 14px;
+            color: #fff;
         }
     </style>
 </head>
 <body>
-    <!-- Background YouTube Video with audio -->
-    <iframe id="background-video" src="https://www.youtube.com/embed/iSUYsGCiMgI?autoplay=1&mute=0&loop=1&playlist=iSUYsGCiMgI&controls=0&rel=0&modestbranding=1&iv_load_policy=3" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <!-- Background YouTube Video -->
+    <iframe id="background-video" src="https://www.youtube.com/embed/iSUYsGCiMgI?autoplay=1&mute=1&loop=1&playlist=iSUYsGCiMgI&controls=0&rel=0&modestbranding=1&iv_load_policy=3" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
     <div class="container" id="login-section">
         <h1>Cookies GEN BY ZANE</h1>
@@ -233,6 +196,12 @@
             <p id="countdown"></p>
         </div>
     </div>
+
+    <!-- PLAY Button -->
+    <button id="muteButton" class="mute-button" onclick="playAudio()">Play</button>
+
+    <!-- YouTube Video Player -->
+    <iframe id="youtube-audio" width="0" height="0" style="display:none" src="https://www.youtube.com/embed/SIXtJ2oQD6o?autoplay=1&mute=1&loop=1&playlist=SIXtJ2oQD6o" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
     <script>
         const PASSWORD = "zane123";
@@ -259,11 +228,6 @@
         }
 
         const hotmailLogs = [
-            { email: "hotmail@domain.com", password: "password" },
-            { email: "hotmail@domain.com", password: "password" },
-            { email: "hotmail@domain.com", password: "password" },
-            { email: "hotmail@domain.com", password: "password" },
-            { email: "hotmail@domain.com", password: "password" },
             { email: "hotmail@domain.com", password: "password" },
             { email: "hotmail@domain.com", password: "password" },
             { email: "hotmail@domain.com", password: "password" },
@@ -309,6 +273,11 @@
                     document.getElementById('progress-bar').style.display = 'none';
                 }
             }, 1000);
+        }
+
+        function playAudio() {
+            document.getElementById('youtube-audio').style.display = 'block'; // Start the video player
+            document.getElementById('muteButton').style.opacity = 0; // Make button invisible after click
         }
     </script>
 </body>
