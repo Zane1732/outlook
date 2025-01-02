@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies GEN BY ZANE</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+            animation: backgroundColorChange 12s ease infinite, textColorChange 12s ease infinite;
+            background-size: 400% 400%;
+            transition: background 0.3s ease;
+        }
+
+        /* Background color transition animation */
+        @keyframes backgroundColorChange {
+            0% {
+                background: linear-gradient(45deg, #ff0000, #000000, #8B0000, #800000);
+            }
+            25% {
+                background: linear-gradient(45deg, #800000, #ff0000, #000000, #8B0000);
+            }
+            50% {
+                background: linear-gradient(45deg, #8B0000, #800000, #ff0000, #000000);
+            }
+            75% {
+                background: linear-gradient(45deg, #000000, #8B0000, #800000, #ff0000);
+            }
+            100% {
+                background: linear-gradient(45deg, #ff0000, #000000, #8B0000, #800000);
+            }
+        }
+
+        /* Neon text color change animation */
+        @keyframes textColorChange {
+            0% {
+                color: #ff0000;
+                text-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000, 0 0 60px #ff0000, 0 0 80px #ff0000;
+            }
+            25% {
+                color: #ff4500;
+                text-shadow: 0 0 20px #ff4500, 0 0 40px #ff4500, 0 0 60px #ff4500, 0 0 80px #ff4500;
+            }
+            50% {
+                color: #ff6347;
+                text-shadow: 0 0 20px #ff6347, 0 0 40px #ff6347, 0 0 60px #ff6347, 0 0 80px #ff6347;
+            }
+            75% {
+                color: #dc143c;
+                text-shadow: 0 0 20px #dc143c, 0 0 40px #dc143c, 0 0 60px #dc143c, 0 0 80px #dc143c;
+            }
+            100% {
+                color: #ff0000;
+                text-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000, 0 0 60px #ff0000, 0 0 80px #ff0000;
+            }
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+            width: 350px;
+            position: relative;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.5s ease;
+        }
+
+        h1 {
+            font-size: 26px;
+            margin-bottom: 20px;
+            animation: textColorChange 12s ease infinite;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        input[type="password"] {
+            padding: 12px;
+            width: 100%;
+            margin-bottom: 15px;
+            border: 1px solid #444;
+            border-radius: 8px;
+            font-size: 16px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            transition: background-color 0.3s ease, border 0.3s ease;
+        }
+
+        input[type="password"]:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 1px solid #ff0000;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #444, #222);
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: linear-gradient(45deg, #222, #444);
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .popup {
+            display: none;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .popup.success {
+            background-color: rgba(0, 255, 0, 0.1);
+            color: #2d6a4f;
+            border: 1px solid #2d6a4f;
+        }
+
+        .popup.error {
+            background-color: rgba(255, 0, 0, 0.1);
+            color: #d32f2f;
+            border: 1px solid #d32f2f;
+        }
+
+        #generator {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .generator-container {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        #countdown {
+            font-size: 18px;
+            margin-top: 10px;
+            color: #ff0000;
+        }
+
+        #progress-bar {
+            width: 100%;
+            height: 10px;
+            background-color: #333;
+            margin-top: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+            display: none;
+        }
+
+        #progress-bar-filled {
+            height: 100%;
+            background-color: #ff0000;
+            width: 0%;
+            transition: width 1s ease;
+        }
+
+        /* Button Animation */
+        .loading {
+            background: linear-gradient(45deg, #666, #333);
+            animation: loadingAnimation 2s infinite;
+        }
+
+        @keyframes loadingAnimation {
+            0% {
+                background: linear-gradient(45deg, #444, #222);
+            }
+            50% {
+                background: linear-gradient(45deg, #333, #444);
+            }
+            100% {
+                background: linear-gradient(45deg, #444, #222);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="login-section">
+        <h1>Cookies GEN BY ZANE</h1>
+        <p style="font-size: 14px; color: #fff;">This tool was made by ZANE, Discord user zane_0xo. It uses Hotmail logs to generate login details. You can log in via Outlook and access emails. Get free account information and much more from this tool.</p>
+        
+        <div id="password-section">
+            <input type="password" id="password" placeholder="Enter Password" />
+            <button class="btn" onclick="checkPassword()">Submit</button>
+            <div id="password-popup" class="popup"></div>
+        </div>
+    </div>
+
+    <div class="container" id="generator-section" style="display: none;">
+        <h1>Hotmail Logs Generator</h1>
+        <button class="btn" id="generate-btn" onclick="generateHotmailLog()">Generate Hotmail Log</button>
+        <div class="generator-container">
+            <p id="hotmail-result">Your Hotmail log will appear here.</p>
+            <div id="progress-bar">
+                <div id="progress-bar-filled"></div>
+            </div>
+            <p id="countdown"></p>
+        </div>
+    </div>
+
+    <script>
+        const PASSWORD = "zane123";
+        let isGenerating = false;
+        let countdownTimer;
+
+        function checkPassword() {
+            const passwordInput = document.getElementById('password').value;
+            const passwordPopup = document.getElementById('password-popup');
+
+            if (passwordInput === PASSWORD) {
+                passwordPopup.style.display = 'block';
+                passwordPopup.textContent = 'Correct password';
+                passwordPopup.className = 'popup success';
+                setTimeout(() => {
+                    document.getElementById('login-section').style.display = 'none';
+                    document.getElementById('generator-section').style.display = 'block';
+                }, 1500);
+            } else {
+                passwordPopup.style.display = 'block';
+                passwordPopup.textContent = 'Wrong password';
+                passwordPopup.className = 'popup error';
+            }
+        }
+
+        const hotmailLogs = [
+            { email: "hotmail@domain.com", password: "password" },
+            { email: "hotmail@domain.com", password: "password" },
+            { email: "hotmail@domain.com", password: "password" },
+            { email: "hotmail@domain.com", password: "password" },
+            { email: "hotmail@domain.com", password: "password" },
+            { email: "hotmail@domain.com", password: "password" },
+            { email: "hotmail@domain.com", password: "password" },
+            { email: "hotmail@domain.com", password: "password" },
+            { email: "hotmail@domain.com", password: "password" },
+            { email: "hotmail@domain.com", password: "password" }
+        ];
+
+        function generateHotmailLog() {
+            if (isGenerating) {
+                alert("Please wait before generating another cookie.");
+                return;
+            }
+
+            isGenerating = true;
+            const randomIndex = Math.floor(Math.random() * hotmailLogs.length);
+            const randomLog = hotmailLogs[randomIndex];
+            document.getElementById('hotmail-result').textContent = `Generated Hotmail Log: ${randomLog.email}:${randomLog.password}`;
+
+            // Disable the button and show the loading animation
+            const generateBtn = document.getElementById('generate-btn');
+            generateBtn.disabled = true;
+            generateBtn.classList.add('loading');
+
+            // Set a 4-second delay and show the countdown and progress bar
+            let remainingTime = 4;
+            document.getElementById('countdown').textContent = `Please wait... ${remainingTime}s`;
+            document.getElementById('progress-bar').style.display = 'block';
+
+            let progress = 0;
+            const progressBar = document.getElementById('progress-bar-filled');
+            countdownTimer = setInterval(() => {
+                remainingTime--;
+                progress += 25;
+                progressBar.style.width = `${progress}%`;
+                document.getElementById('countdown').textContent = `Please wait... ${remainingTime}s`;
+
+                if (remainingTime <= 0) {
+                    clearInterval(countdownTimer);
+                    generateBtn.disabled = false;
+                    generateBtn.classList.remove('loading');
+                    isGenerating = false;
+                    document.getElementById('countdown').textContent = '';
+                    document.getElementById('progress-bar').style.display = 'none';
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
